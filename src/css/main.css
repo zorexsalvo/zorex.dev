@@ -36,3 +36,24 @@ body {
   color: #666;
   letter-spacing: 0.02em;
 }
+
+.links {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.links a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: #1a1a1a;
+}
+
+.sep {
+  color: #ccc;
+  margin: 0 0.5rem;
+}
