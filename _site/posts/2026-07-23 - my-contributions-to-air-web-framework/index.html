@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zorex Salvo. building things, breaking things, learning in between.">
+  <meta name="author" content="Zorex Salvo">
+
+  <meta property="og:title" content="Zorex Salvo / zorex.dev">
+  <meta property="og:description" content="building things, breaking things, learning in between.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zorx.dev">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Zorex Salvo / zorex.dev">
+  <meta name="twitter:description" content="building things, breaking things, learning in between.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>zorex.dev</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/" class="nav-link">home</a>
+    <span class="nav-sep">/</span>
+    <a href="/blog" class="nav-link">blog</a>
+  </nav>
+  
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">My Contributions to the Air Web Framework</h1>
+    <time class="post-date" datetime="2026-07-23T00:00:00.000Z">July 23, 2026</time>
+    
+    <div class="post-tags">
+      
+      <span class="tag">python</span>
+      
+      <span class="tag">opensource</span>
+      
+      <span class="tag">air</span>
+      
+      <span class="tag">pycon</span>
+      
+      <span class="tag">sprints</span>
+      
+      <span class="tag">django</span>
+      
+    </div>
+    
+  </header>
+  
+  <div class="post-content">
+    <p>During PyCon Davao 2025, I didn't just contribute to pandas. I also made several contributions to <strong>Air</strong>, the AI-first Python web framework by <strong>Daniel Roy Greenfeld and Audrey Roy Greenfeld</strong> (the authors of <em>Two Scoops of Django</em>).</p>
+<p>Both Daniel and Audrey were keynote speakers and sprint leads at PyCon Davao 2025. They noted that I was an <strong>early contributor</strong> — some of my PRs were submitted before the sprint even started.</p>
+<h2>The Framework</h2>
+<p><a href="https://airwebframework.org/">Air</a> is described as &quot;the first web framework designed for AI to write.&quot; It's a Python web framework built with comprehensive docstrings and predictable patterns so that AI coding assistants can generate reliable code with it. It's early-stage but already has 900+ stars on GitHub.</p>
+<p>The project is also notably <strong>built in the Philippines</strong> — the website lists Manila, Davao, and Baguio as development cities.</p>
+<h2>My PRs</h2>
+<p>I submitted 5 pull requests in total, 3 of which were merged:</p>
+<h3>Merged</h3>
+<p><strong>#527 — docs(requests): add usage and recipes for requests.Request</strong>
+<em>Oct 5, 2025 | +68/-5 | 1 review approval</em></p>
+<p>Added dedicated documentation for <code>air.requests.Request</code>. This was my first PR to the project — submitted weeks before PyCon Davao.</p>
+<p><strong>#683 — docs: Update badges and improve index.md formatting</strong>
+<em>Oct 26, 2025 | +86/-13 | 1 review approval</em></p>
+<p>Fixed the README badges and formatting. Submitted on the sprint day itself.</p>
+<p><strong>#705 — chore: enable PLC rules and update files that break it</strong>
+<em>Oct 26–27, 2025 | +23/-36 across 8 files | Merged with review</em></p>
+<p>Enabled Pylint Convention (PLC) rules in Ruff and fixed the 8 files that violated them. A proper lint enforcement PR — find the issues, fix them, turn on the rules.</p>
+<h3>Not Merged (but still meaningful)</h3>
+<p><strong>#544 — feat(lint): add spell-check for documentation</strong>
+<em>Oct 9, 2025 | +62/-12 across 12 files</em></p>
+<p>Added codespell as a spell-checker for documentation files. Wasn't merged but got 9 comments and meaningful discussion.</p>
+<p><strong>#606 — Skip codecov upload step if token is unset</strong>
+<em>Oct 22, 2025 | +4/-1 | CI fix</em></p>
+<p>A small fix to prevent CI failures on forked repos where Codecov tokens aren't available.</p>
+<h2>The Sprint Experience</h2>
+<p>At PyCon Davao, Daniel Roy Greenfeld was giving a talk about Air. During the sprint, he was mentoring contributors directly. Since I'd already submitted PRs before the conference, I had a head start — I knew the codebase, the PR workflow, and the linting setup.</p>
+<p>That's probably why he called me out as an early contributor. I wasn't just showing up at the sprint cold — I'd already been poking at the project for weeks.</p>
+<h2>What I Learned</h2>
+<ol>
+<li>
+<p><strong>Submit PRs before the sprint.</strong> Showing up with existing contributions means you can spend the sprint on harder problems instead of figuring out how to clone the repo.</p>
+</li>
+<li>
+<p><strong>Documentation PRs are a great entry point.</strong> My first two PRs (#527 and #683) were docs-only. They're low-risk for maintainers and teach you the project's conventions.</p>
+</li>
+<li>
+<p><strong>Lint enforcement PRs scale well.</strong> #705 touched 8 files but was one logical change — turn on a rule, fix the violations. Clear scope, easy to review.</p>
+</li>
+<li>
+<p><strong>Not every PR needs to merge.</strong> #544 didn't get merged, but I learned about codespell, got feedback from maintainers, and contributed to the discussion. That's still a win.</p>
+</li>
+</ol>
+<hr>
+<p>Two open source projects in one conference weekend — pandas and Air. Not bad for a couple of days in Davao.</p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <a href="/blog" class="back-link">← back to all posts</a>
+  </footer>
+</article>
+
+</body>
+</html>
