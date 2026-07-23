@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zorex Salvo. building things, breaking things, learning in between.">
+  <meta name="author" content="Zorex Salvo">
+
+  <meta property="og:title" content="Zorex Salvo / zorex.dev">
+  <meta property="og:description" content="building things, breaking things, learning in between.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zorx.dev">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Zorex Salvo / zorex.dev">
+  <meta name="twitter:description" content="building things, breaking things, learning in between.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>zorex.dev</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/" class="nav-link">home</a>
+    <span class="nav-sep">/</span>
+    <a href="/blog" class="nav-link">blog</a>
+  </nav>
+  
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">The Evolution of My Neovim Config</h1>
+    <time class="post-date" datetime="2026-07-23T00:00:00.000Z">July 23, 2026</time>
+    
+    <div class="post-tags">
+      
+      <span class="tag">neovim</span>
+      
+      <span class="tag">vim</span>
+      
+      <span class="tag">editor</span>
+      
+      <span class="tag">config</span>
+      
+      <span class="tag">lua</span>
+      
+    </div>
+    
+  </header>
+  
+  <div class="post-content">
+    <p>I've been tweaking my Neovim config for over two and a half years now. It started as a simple experiment and turned into a 39-commit journey through plugin managers, colorschemes, and LSP setups.</p>
+<p>Here's the timeline.</p>
+<h2>Phase 1: Packer Era (Dec 2023)</h2>
+<p>The first commit was December 10, 2023. Back then, <strong>Packer</strong> was the plugin manager of choice. My config was a mix of Vimscript and Lua:</p>
+<pre><code>init.vim          → lua require('plugins')
+lua/
+├── plugins.lua   → Packer startup function
+├── telescope.lua
+├── tree.lua
+└── zorx/
+    ├── color.lua
+    └── remap.lua
+plugin/
+└── packer_compiled.lua
+</code></pre>
+<p>The entry point was <code>init.vim</code> with just one line calling into Lua. Packer managed everything in a single <code>startup()</code> block with Telescope, nvim-tree, Harpoon, and a Dracula theme.</p>
+<p>Classic 2023 Neovim setup. It worked, but it wasn't pretty.</p>
+<h2>Phase 2: Plugin Hoarding (Dec 2023 – Apr 2024)</h2>
+<p>Over the next few months, I kept adding:</p>
+<ul>
+<li><strong>LSP-zero</strong> to avoid setting up LSP manually</li>
+<li><strong>Copilot</strong> for AI completions</li>
+<li><strong>Vim-fugitive</strong> for Git integration</li>
+<li><strong>Nerdcommenter</strong> for easy commenting</li>
+<li><strong>Statusline</strong> because the default looks bare</li>
+<li><strong>Kanagawa and Catppuccin</strong> (yes, I switched themes more than once)</li>
+</ul>
+<p>At this point, the config was functional but messy. Everything was in one big Packer block, and loading times were starting to hurt.</p>
+<h2>Phase 3: The Migration (Packer to Lazy.nvim, Jun 2025)</h2>
+<p>June 19, 2025 was the big day. <strong>Packer was deprecated</strong>, and Lazy.nvim had become the standard. I bit the bullet and migrated.</p>
+<p>The changes were significant:</p>
+<ul>
+<li><code>init.vim</code> → <code>init.lua</code> (full Lua migration)</li>
+<li>One big Packer block → modular plugin files in <code>lua/plugins/</code></li>
+<li>Lazy loading per plugin (load on keymap, command, or filetype)</li>
+<li><code>lua/config/</code> for structured setup</li>
+</ul>
+<p>The structure became:</p>
+<pre><code>init.lua           → require(&quot;config.lazy&quot;), require(&quot;config.lsp&quot;)
+lua/
+├── config/
+│   ├── lazy.lua   → Lazy.nvim bootstrap
+│   └── lsp.lua    → LSP config
+└── plugins/
+    ├── chat.lua
+    ├── colorscheme.lua
+    ├── copilot.lua
+    ├── fugitive.lua
+    ├── harpoon.lua
+    ├── indent.lua
+    ├── lsp.lua
+    ├── plugins.lua
+    ├── scope.lua
+    ├── statusline.lua
+    └── which-key.lua
+</code></pre>
+<p>Each plugin got its own file with its own <code>opts</code> and lazy loading config. Clean, modular, easy to maintain.</p>
+<h2>Phase 4: Simplification (Oct 2025 – May 2026)</h2>
+<p>After the migration, I kept refining:</p>
+<ul>
+<li><strong>CopilotChat.nvim</strong> for inline AI chat</li>
+<li><strong>Ruff LSP</strong> for Python linting</li>
+<li><strong>Which-key</strong> for keymap discovery</li>
+<li>Various colorscheme experiments (Tokyo Night, Catppuccin)</li>
+</ul>
+<p>The May 8, 2026 commit was titled <em>&quot;refactor: simplify nvim config.&quot;</em> That's the natural end state of every Neovim config journey. You start by adding everything, then slowly realize less is more.</p>
+<h2>Phase 5: The Category Reorganization (Jul 2026)</h2>
+<p>And then I did another pass. The most recent commits restructured everything again:</p>
+<p><strong>Plugins reorganized by category:</strong></p>
+<pre><code>lua/plugins/
+├── chat.lua          → AI chat plugins
+├── coding.lua        → coding assistance
+├── colorscheme.lua   → themes
+├── completion.lua    → autocompletion
+├── editor.lua        → editor enhancements
+├── git.lua           → Git integration
+├── navigation.lua    → file navigation
+├── syntax.lua        → syntax highlighting
+├── ui.lua            → UI improvements
+└── ...individual file for harpoon, fugitive, etc.
+</code></pre>
+<p><strong>LSP modularized:</strong></p>
+<pre><code>lua/config/
+├── lsp.lua           → core LSP setup
+├── lsp-servers.lua   → per-server configs
+├── lualine.lua       → statusline
+└── ruff.lua          → Python linting
+</code></pre>
+<p><strong>New addition:</strong></p>
+<pre><code>lua/utils/            → shared utility functions
+</code></pre>
+<p>The README also got a full rewrite with documentation for each module. A sign that the config had matured enough to explain itself to future visitors.</p>
+<h2>What I Learned</h2>
+<ol>
+<li>
+<p><strong>Start with Lazy.nvim.</strong> If you're setting up Neovim today, don't bother with anything else. It's faster, better documented, and lazy loading is built-in.</p>
+</li>
+<li>
+<p><strong>Modular over monolithic.</strong> One file per plugin is easier to debug than one massive startup block. You can comment out a whole file instead of hunting for the right lines.</p>
+</li>
+<li>
+<p><strong>You don't need most plugins.</strong> I started with 15+ plugins. I probably use 5 regularly. The rest are there &quot;just in case.&quot;</p>
+</li>
+<li>
+<p><strong>Config drift is real.</strong> Over two years, you'll switch themes at least three times. Embrace it.</p>
+</li>
+<li>
+<p><strong><code>init.vim</code> → <code>init.lua</code> is worth the migration.</strong> Full Lua configs are faster and more readable. The migration is a weekend project that pays off every time you open a file.</p>
+</li>
+</ol>
+<hr>
+<p>The full config is on GitHub if you want to peek: <a href="https://github.com/zorexsalvo/nvim-config">zorexsalvo/nvim-config</a></p>
+<p>It's nothing special. But it's mine.</p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <a href="/blog" class="back-link">← back to all posts</a>
+  </footer>
+</article>
+
+</body>
+</html>
