@@ -66,3 +66,178 @@ body {
   color: #ccc;
   margin: 0 0.5rem;
 }
+
+/* Navigation */
+.site-nav {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  font-size: 0.875rem;
+  z-index: 10;
+}
+
+.nav-link {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #1a1a1a;
+}
+
+.nav-sep {
+  color: #ccc;
+  margin: 0 0.35rem;
+}
+
+/* Blog Listing */
+.blog {
+  max-width: 640px;
+  width: 100%;
+  padding: 6rem 2rem 4rem;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post-item:first-child {
+  padding-top: 0;
+}
+
+.post-item-date {
+  font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  color: #999;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.post-item-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.post-item-title a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.post-item-title a:hover {
+  color: #666;
+}
+
+.post-item-description {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.post-item-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  color: #888;
+  background: #f0f0f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+}
+
+/* Post Page */
+.post {
+  max-width: 640px;
+  width: 100%;
+  padding: 6rem 2rem 4rem;
+  margin: 0 auto;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.post-date {
+  font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  color: #999;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.post-content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content blockquote {
+  border-left: 2px solid #ddd;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #666;
+  font-style: italic;
+}
+
+.post-content strong {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.back-link {
+  font-size: 0.875rem;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #1a1a1a;
+}

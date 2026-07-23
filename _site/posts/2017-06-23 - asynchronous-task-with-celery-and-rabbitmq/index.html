@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zorex Salvo. building things, breaking things, learning in between.">
+  <meta name="author" content="Zorex Salvo">
+
+  <meta property="og:title" content="Zorex Salvo / zorex.dev">
+  <meta property="og:description" content="building things, breaking things, learning in between.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zorx.dev">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Zorex Salvo / zorex.dev">
+  <meta name="twitter:description" content="building things, breaking things, learning in between.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>zorex.dev</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/" class="nav-link">home</a>
+    <span class="nav-sep">/</span>
+    <a href="/blog" class="nav-link">blog</a>
+  </nav>
+  
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Asynchronous Task with Celery and RabbitMQ</h1>
+    <time class="post-date" datetime="2017-06-23T00:00:00.000Z">June 23, 2017</time>
+    
+    <div class="post-tags">
+      
+      <span class="tag">python</span>
+      
+    </div>
+    
+  </header>
+  
+  <div class="post-content">
+    <p>layout: post.njk</p>
+<blockquote>
+<p><em>Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.</em>
+Slow API responses? Browser timeouts?</p>
+</blockquote>
+<p>You probably have slow processes — external API calls, email services, SMS — that don't need to be processed synchronously before returning a response.</p>
+<p>Last week, I experienced that <em>awkward pause</em> / site hanging / infinite loading / &quot;a few moments later&quot; moment while demonstrating my app to QA. I didn't expect it — I never experienced it on my local machine. Turns out, my processing was hanging on the email service, where I had to make a request to our mail server via SMTP. The response time was inconsistent, and unless the mail server responded or my process timed out, my app stayed in that hanging state.</p>
+<p>Worry no more — the RabbitMQ × Celery combo is here for you. RabbitMQ acts as the message broker, storing the task queue, and Celery executes them one by one.</p>
+<h3>Setup</h3>
+<p>Install Celery and RabbitMQ:</p>
+<pre><code class="language-bash">pip install celery
+sudo apt-get install -y rabbitmq-server
+</code></pre>
+<blockquote>
+<p><strong>Note 2026:</strong> The original post pinned <code>celery==4.0.2</code>. Current Celery versions are much newer and the API is stable. The code below works with modern Celery too.</p>
+</blockquote>
+<p>Create <code>tasks.py</code>:</p>
+<pre><code class="language-python">from celery import Celery
+
+app = Celery('tasks', broker='amqp://localhost//')
+
+@app.task
+def create_a_slow_process_needs_async(job_name):
+    # Your slow process here
+    print(f&quot;Processing: {job_name}&quot;)
+    return f&quot;Done: {job_name}&quot;
+</code></pre>
+<p>Then run the worker:</p>
+<pre><code class="language-bash">$ celery -A tasks worker --loglevel=info
+</code></pre>
+<p>You should see output like:</p>
+<pre><code>-------------- celery@hostname v5.x (singularity)
+--- * ***  * --  ...
+-- * - **** ---
+- ** ---------- [config]
+- ** ---------- .&gt; app:         tasks:0x...
+- ** ---------- .&gt; transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .&gt; results:     disabled://
+- *** --- * --- .&gt; concurrency: 4 (prefork)
+-- ******* ----
+--- ***** -----
+
+[tasks]
+  . tasks.create_a_slow_process_needs_async
+
+[INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[INFO/MainProcess] celery@hostname ready.
+</code></pre>
+<p>Now execute the task from Python:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from tasks import create_a_slow_process_needs_async
+&gt;&gt;&gt; result = create_a_slow_process_needs_async.delay('Send email blast!')
+&lt;AsyncResult: 41ba4299-77a1-421b-9c35-873347f98b14&gt;
+</code></pre>
+<p>The task runs in the background, and your app responds immediately. No more hanging.</p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <a href="/blog" class="back-link">← back to all posts</a>
+  </footer>
+</article>
+
+</body>
+</html>
