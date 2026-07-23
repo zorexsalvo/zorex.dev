@@ -9,8 +9,6 @@ draft: false
 ---
 
 
----
-
 It was **October 26, 2025** — the sprint day of PyCon Davao. I was sitting in the sprint room, staring at the pandas repository.
 
 If you've ever been to a PyCon sprint, you know the feeling. Here's this massive open source project — used by millions of data scientists and engineers worldwide — and you're supposed to *contribute* to it? In *one afternoon*?
