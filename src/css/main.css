@@ -30,6 +30,7 @@ body {
 }
 
 .tagline {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 400;
   color: #666;
