@@ -249,6 +249,36 @@ body {
   margin: 2rem 0;
 }
 
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.post-content thead {
+  border-bottom: 2px solid #ddd;
+}
+
+.post-content th {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem;
+  color: #1a1a1a;
+}
+
+.post-content td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.post-content tbody tr:hover {
+  background: #f9f9f9;
+}
+
 .post-content strong {
   font-weight: 600;
   color: #1a1a1a;
