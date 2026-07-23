@@ -1,8 +1,8 @@
 ---
 layout: post.njk
 title: "My Contributions to the Air Web Framework"
-date: 2026-07-23
-published: 2026-07-23
+date: 2025-10-26
+published: 2025-10-26
 tags: [python, opensource, air, pycon, sprints, django]
 description: "How I contributed to the Air web framework during PyCon Davao 2025 — and became an early contributor before the sprint even started."
 draft: false
