@@ -1,0 +1,115 @@
+<blockquote>
+<p><em>A draft. Still needs polishing, but the bones are here.</em></p>
+</blockquote>
+<hr>
+<p>It was <strong>October 26, 2025</strong> — the sprint day of PyCon Davao. I was sitting in the sprint room, staring at the pandas repository.</p>
+<p>If you've ever been to a PyCon sprint, you know the feeling. Here's this massive open source project — used by millions of data scientists and engineers worldwide — and you're supposed to <em>contribute</em> to it? In <em>one afternoon</em>?</p>
+<p>I'd heard of pandas — who hasn't? — but contributing to it? That felt like walking into a different league entirely.</p>
+<h3>Finding the Issue</h3>
+<p>The sprint mentors pointed us toward issues tagged with &quot;good first issue&quot; and &quot;help wanted.&quot; One caught my eye:</p>
+<p><strong><a href="https://github.com/pandas-dev/pandas/issues/62434">Issue #62434</a> — Enforce Ruff rule B905, zip-without-explicit-strict</strong></p>
+<p>The ask was simple on paper: go through the test files in <code>pandas/tests/window</code> and add <code>strict=True</code> to every <code>zip()</code> call that didn't have it.</p>
+<p>In Python 3.10+, <code>zip()</code> accepts a <code>strict</code> parameter:</p>
+<pre><code class="language-python"># Without strict — silently truncates if lengths differ
+for a, b in zip(list_a, list_b):
+    ...
+
+# With strict=True — raises ValueError if lengths differ
+for a, b in zip(list_a, list_b, strict=True):
+    ...
+</code></pre>
+<p>Without <code>strict=True</code>, if your lists accidentally have different lengths, <code>zip()</code> silently drops the extra elements. That's the kind of bug that passes tests, ships to production, and takes hours to track down.</p>
+<p>Seemed straightforward. Fork. Edit. PR. Done.</p>
+<h3>Except it wasn't that simple</h3>
+<p>I opened <strong><a href="https://github.com/pandas-dev/pandas/pull/62852">PR #62852</a></strong> with 12 additions and 12 deletions across 4 files. The easy ones got <code>strict=True</code>. But three test functions had <code>zip()</code> calls where the iterables were legitimately different lengths — that was the <em>point</em> of the test:</p>
+<pre><code class="language-python"># Some tests deliberately zip mismatched-length iterables
+for expected, actual in zip(expecteds, df.rolling(window), strict=False):
+</code></pre>
+<p>So I set those to <code>strict=False</code> instead.</p>
+<p>Then <strong>mroeschke</strong>, a pandas maintainer, reviewed the PR with the exact right question:</p>
+<blockquote>
+<p><em>&quot;Why is this False?&quot;</em></p>
+</blockquote>
+<p>And in another file:</p>
+<blockquote>
+<p><em>&quot;Shouldn't all these be <code>strict=True</code>?&quot;</em></p>
+</blockquote>
+<p>Fair question. If you're enforcing a rule called &quot;use strict zip,&quot; why would <em>any</em> of them be <code>False</code>?</p>
+<p>I explained:</p>
+<blockquote>
+<p><em>&quot;Some of the parametrize cases have mismatched lengths — when run with <code>strict=True</code>, they consistently raise <code>ValueError: zip() argument 2 is shorter than argument 1</code>.&quot;</em></p>
+</blockquote>
+<p>I linked to a specific test case where the parametrized inputs were intentionally uneven. After checking, mroeschke replied:</p>
+<blockquote>
+<p><em>&quot;I see. Thanks for highlighting.&quot;</em></p>
+</blockquote>
+<p>And merged it.</p>
+<p>That exchange was the real learning moment. A static analysis rule like B905 isn't a mindless edict — it forces you to think about each call site and decide: <em>do I expect these to match?</em> The answer isn't always &quot;yes,&quot; and that's okay. What matters is that you're explicit about it.</p>
+<h3>By the numbers</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Files changed</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Lines added</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Lines deleted</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Commits</td>
+<td>3</td>
+</tr>
+<tr>
+<td>CI checks</td>
+<td>42</td>
+</tr>
+<tr>
+<td>Review comments</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Force pushes</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Days from open to merge</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Merged by</td>
+<td><a href="https://github.com/mroeschke">@mroeschke</a></td>
+</tr>
+</tbody>
+</table>
+<p>The fourth file wasn't test code at all — it was <code>pyproject.toml</code>. By fixing the <code>zip()</code> calls in those test files, I also removed their entries from the B905 exclusion list. Three lines deleted from the ignore rules. Small, but satisfying.</p>
+<h3>What I learned</h3>
+<ol>
+<li>
+<p><strong>Sprints are the best entry point.</strong> The mentors, the pre-tagged issues, the room full of people doing the same thing — it lowers the barrier enormously. Without PyCon Davao's sprint day, I probably wouldn't have taken the first step.</p>
+</li>
+<li>
+<p><strong>&quot;Easy&quot; issues still require thought.</strong> Adding <code>strict=True</code> sounds mechanical, but the review caught nuance I almost glossed over. The maintainer's question — &quot;Why is this False?&quot; — is exactly the kind of rigor that keeps pandas solid.</p>
+</li>
+<li>
+<p><strong><code>strict=True</code> should be your default.</strong> I add it to every <code>zip()</code> I write now. If you're not using it, you're silently accepting a class of bugs that are hard to reproduce and harder to debug.</p>
+</li>
+<li>
+<p><strong>Maintainers appreciate good-faith contributions.</strong> Mroeschke didn't just review the code — they engaged with the reasoning. That's the kind of interaction that makes open source worth contributing to.</p>
+</li>
+</ol>
+<h3>What's next</h3>
+<p>One PR down. One of the biggest projects in the Python ecosystem, and I've got a commit in it. The bar for &quot;I can contribute to this&quot; has been permanently lowered.</p>
+<p>If you're at a conference with a sprint day — go. Pick an issue. Make the change. Ship it. The worst that happens is you learn something. The best? You get a green merge button from one of the most respected projects in the language.</p>
+<hr>
+<p><em>Thanks to the PyCon Davao 2025 sprint organizers, the pandas maintainers (especially @mroeschke), and everyone who made the sprint welcoming for first-time contributors.</em></p>
