@@ -11,7 +11,6 @@ reactions: 17
 comments: 18
 description: From Notepad to Vim — my journey through text editors from college through my professional career.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 Let's start with the text editors I've used since the beginning of my programming journey.

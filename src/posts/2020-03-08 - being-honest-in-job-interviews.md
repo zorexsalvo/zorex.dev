@@ -11,7 +11,6 @@ reactions: 13
 comments: 4
 description: Is it better to be honest in a job interview or fake it till you make it? Here's what I and my colleagues think.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 Is it better to be honest that you don't know the answers to some of the questions? Is it worth overselling yourself — "fake it till you make it"? These were the questions I asked my colleagues last Friday, and I'm sharing some of their answers.

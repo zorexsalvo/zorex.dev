@@ -11,7 +11,6 @@ reactions: 11
 comments: 2
 description: Personal note on implementing asynchronous tasks in Python with Celery and RabbitMQ.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 Slow API responses? Browser timeouts?

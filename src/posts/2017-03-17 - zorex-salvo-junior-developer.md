@@ -11,7 +11,6 @@ reactions: 4
 comments: 1
 description: My introduction to the Dev.to community — who I am, what I do, and why I'm here.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 I'm from the Philippines.

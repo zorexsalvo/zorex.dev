@@ -11,7 +11,6 @@ reactions: 15
 comments: 3
 description: How to set up your own GitHub-like git server in under an hour using Gogs and Docker.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 ### What is Gogs?

@@ -11,7 +11,6 @@ reactions: 16
 comments: 0
 description: My experience attending AWS Summit Manila 2017 — freebies, breakout sessions, and the overwhelming response.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 *Cross-posting this from my newly created personal website [zorexsalvo.com](http://zorexsalvo.com)*

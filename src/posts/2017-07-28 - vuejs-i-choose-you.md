@@ -11,7 +11,6 @@ reactions: 30
 comments: 9
 description: Why I chose Vue.js over all the other JavaScript frameworks out there.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 ### Some time ago...

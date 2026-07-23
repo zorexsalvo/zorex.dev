@@ -11,7 +11,6 @@ reactions: 10
 comments: 1
 description: My first time attending a conference abroad — PyCon ID 2019 in Surabaya, Indonesia. 
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 It was really fun!

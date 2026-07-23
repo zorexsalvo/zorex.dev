@@ -11,7 +11,6 @@ reactions: 9
 comments: 1
 description: Personal note on configuring Docker to work behind a corporate network proxy.
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 *This is a personal note for configuring Docker behind a corporate network proxy.*

@@ -11,7 +11,6 @@ reactions: 13
 comments: 16
 description: A discussion on staying motivated with side projects — do you finish yours?
 ---
-layout: post.njk
 
 > *Spring cleaned July 2026. Dusted off, broken images flagged, outdated notes added.*
 Hi everyone! Got new project ideas? Have you finished your previous one? I doubt it!
