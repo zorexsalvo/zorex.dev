@@ -40,15 +40,6 @@ As we bid farewell to PyCon PH 2024, we hope it has provided you with **valuable
 
 Even as PyCon PH 2024 concludes, remember that [Python Philippines (PythonPH)](https://www.facebook.com/pythonph) remains a vibrant, supportive community. We're here to continue offering guidance, resources, and opportunities for growth, networking, and learning all year round.
 
-Cheers!
-
-*— Zorex Salvo, PyCon Philippines 2024 Chair*
-
----
-
-*Halina at magkaisa. Gabayan natin ang bawat isa, sali na!*
-*(Come together and unite. Let's guide one another, join us!)*
-
 ---
 
 ### Personal Reflection (2026)
