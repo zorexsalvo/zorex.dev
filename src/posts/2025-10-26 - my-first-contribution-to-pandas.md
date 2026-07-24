@@ -17,7 +17,7 @@ I'd heard of pandas — who hasn't? — but contributing to it? That felt like w
 
 ### Finding the Issue
 
-The sprint mentors pointed us toward issues tagged with "good first issue" and "help wanted." One caught my eye:
+Sprint lead **Kevin Amparado (@KevsterAmp)** and the other sprint mentors pointed us toward issues tagged with "good first issue" and "help wanted." One caught my eye:
 
 **[Issue #62434](https://github.com/pandas-dev/pandas/issues/62434) — Enforce Ruff rule B905, zip-without-explicit-strict**
 
@@ -106,4 +106,4 @@ If you're at a conference with a sprint day — go. Pick an issue. Make the chan
 
 ---
 
-*Thanks to the PyCon Davao 2025 sprint organizers, the pandas maintainers (especially @mroeschke), and everyone who made the sprint welcoming for first-time contributors.*
+*Thanks to sprint lead **Kevin Amparado (@KevsterAmp)**, the PyCon Davao 2025 sprint organizers, the pandas maintainers (especially @mroeschke), and everyone who made the sprint welcoming for first-time contributors.*
