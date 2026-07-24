@@ -90,7 +90,7 @@ The fourth file wasn't test code at all; it was `pyproject.toml`. By fixing the 
 
 ### What I learned
 
-1. **Sprints are the best entry point.** The mentors, the pre-tagged issues, and the room full of people doing the same thing — it lowers the barrier enormously. Without PyCon Davao's sprint day, I probably wouldn't have taken the first step.
+1. **Sprints are the best entry point.** The mentors, the pre-tagged issues, and the room full of people doing the same thing: it lowers the barrier enormously. Without PyCon Davao's sprint day, I probably wouldn't have taken the first step.
 
 2. **"Easy" issues still require thought.** Adding `strict=True` sounds mechanical, but the review caught nuance I almost glossed over. The maintainer's question, "Why is this False?", is exactly the kind of rigor that keeps pandas solid.
 
