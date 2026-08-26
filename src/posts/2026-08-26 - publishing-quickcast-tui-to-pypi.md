@@ -1,7 +1,17 @@
 ---
+layout: post.njk
 title: "Quickcast, Building and Publishing a Radial-Menu Terminal App"
+date: 2026-08-26
 published: 2026-08-26
-tags: [python, opensource, pypi, packaging, textual, tui, cli, asyncio]
+tags:
+  - python
+  - opensource
+  - pypi
+  - packaging
+  - textual
+  - tui
+  - cli
+  - asyncio
 description: "Building quickcast, a BG3-inspired radial-menu terminal UI for firing off shell commands, then taking it from scratch to a PyPI-ready package."
 draft: false
 ---
