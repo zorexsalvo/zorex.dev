@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: "TermDeck: A Presentation in Your Terminal"
-date: 2026-08-27
+date: 2026-08-29
 published: 2026-08-29
 tags:
   - python
@@ -19,7 +19,7 @@ repo_link: "https://github.com/zorexsalvo/termdeck"
 
 **TermDeck** is a terminal presentation tool. A deck is just a folder; each file in that folder is one slide. Drop in a Markdown file for a quick slide, or a Python file for a fully interactive one, and navigate with the arrow keys. It is built on [Textual](https://github.com/Textualize/textual).
 
-Unlike the abstract "here is a tool" story, TermDeck has a messy, specific origin: it started as a live lightning-talk deck for PyCon Indonesia, one that could actually play music. This post covers that arc, from a personal talk deck to a published package, plus the flaws a release audit caught before and after publishing.
+Unlike the abstract "here is a tool" story, TermDeck has a messy, specific origin: it started as a live lightning-talk deck for PyCon APAC 2024 in Indonesia, one that could actually play music. This post covers that arc, from a personal talk deck to a published package, plus the flaws a release audit caught before and after publishing.
 
 ## The Idea
 
@@ -59,7 +59,7 @@ class Slide(Screen):
         yield Button("Hello")
 ```
 
-Once a slide is a Python `Screen`, the whole widget toolkit opens up. Which brings me back to the music pad. The deck I gave at PyCon Indonesia had a `p5_musicpad.py` slide that used `musicpy` to build an interactive pad: buttons for individual chords, a drumbeat that loops, and a `wholesong` button that plays a progression. Pressing a button while your slide is on screen plays the chord through a midi instrument. It is silly and it is fun and it would be impossible in a markdown-only tool.
+Once a slide is a Python `Screen`, the whole widget toolkit opens up. Which brings me back to the music pad. The deck I gave at PyCon APAC 2024 in Indonesia had a `p5_musicpad.py` slide that used `musicpy` to build an interactive pad: buttons for individual chords, a drumbeat that loops, and a `wholesong` button that plays a progression. Pressing a button while your slide is on screen plays the chord through a midi instrument. It is silly and it is fun and it would be impossible in a markdown-only tool.
 
 That is the differentiator: most "terminal slides" tools render markdown only and dead-end at text. A TermDeck deck can end on a screen that actually does something. The interactive pad is what became the `[music]` extra today.
 
