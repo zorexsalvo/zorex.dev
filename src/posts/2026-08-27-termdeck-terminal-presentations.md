@@ -19,7 +19,7 @@ repo_link: "https://github.com/zorexsalvo/termdeck"
 
 **TermDeck** is a terminal presentation tool. A deck is just a folder; each file in that folder is one slide. Drop in a Markdown file for a quick slide, or a Python file for a fully interactive one, and navigate with the arrow keys. It is built on [Textual](https://github.com/Textualize/textual).
 
-Unlike the abstract "here is a tool" story, TermDeck has a messy, specific origin: it started as a live lightning-talk deck for PyCon APAC 2024 in Indonesia, one that could actually play music. This post covers that arc, from a personal talk deck to a published package, plus the flaws a release audit caught before and after publishing.
+Unlike the abstract "here is a tool" story, TermDeck has a messy, specific origin: it started as a live lightning-talk deck for PyCon APAC 2024 in Indonesia, one that could actually play music. This post covers that arc, from a personal talk deck to a published package.
 
 ## The Idea
 
