@@ -18,8 +18,7 @@ description: "Zorex Salvo — building things, breaking things, learning in betw
 
 <section class="blog recent">
   <ul class="post-list">
-    {% for post in collections.posts %}
-    {% if loop.index <= 3 %}
+    {% for post in collections.posts.slice(0,4) %}
     <li class="post-item">
       <time class="post-item-date" datetime="{{ post.date | dateToISO }}">{{ post.date | readableDate }}</time>
       <h3 class="post-item-title">
@@ -29,7 +28,6 @@ description: "Zorex Salvo — building things, breaking things, learning in betw
       <p class="post-item-description">{{ post.data.description }}</p>
       {% endif %}
     </li>
-    {% endif %}
     {% endfor %}
   </ul>
   <p class="recent-more"><a href="/blog">all posts →</a></p>
