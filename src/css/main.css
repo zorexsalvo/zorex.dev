@@ -110,6 +110,17 @@ body {
   margin: 0 0.35rem;
 }
 
+.nav-link-right {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  opacity: 0.4;
+}
+
+.nav-link-right:hover {
+  opacity: 1;
+}
+
 /* Blog Listing */
 .blog {
   max-width: 640px;
