@@ -2,7 +2,7 @@
 layout: post.njk
 title: "TermDeck: A Presentation in Your Terminal"
 date: 2026-08-27
-published: 2026-08-27
+published: 2026-08-29
 tags:
   - python
   - opensource
@@ -12,7 +12,7 @@ tags:
   - tui
   - markdown
   - presentation
-description: I built a terminal presentation tool to give a lightning-talk at PyCon Indonesia, then productionized it into a PyPI package.
+description: I built a terminal presentation tool to give a lightning-talk at PyCon APAC 2024 in Indonesia, then productionized it into a PyPI package.
 draft: false
 repo_link: "https://github.com/zorexsalvo/termdeck"
 ---
