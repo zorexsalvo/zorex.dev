@@ -17,6 +17,10 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("ogType", function(url) {
+    return url.indexOf("/posts/") === 0 ? "article" : "website";
+  });
+
   // Posts collection (sorted by date, newest first)
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/posts/*.md").sort(function(a, b) {
