@@ -6,6 +6,7 @@ published: 2025-08-14
 tags: [python, ssh, terminal, radio, homelab]
 description: "How I built fm.zorx.space — a terminal radio that streams music over SSH, no browser required."
 draft: false
+repo_link: "https://github.com/zorexsalvo/fm.zorx.space"
 ---
 
 I built something silly this week: a terminal radio.

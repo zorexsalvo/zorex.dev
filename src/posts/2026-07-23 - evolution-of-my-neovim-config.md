@@ -11,6 +11,7 @@ tags:
   - lua
 description: Two and a half years of tinkering. From Packer to Lazy.nvim, from init.vim to a lean Lua config.
 draft: false
+repo_link: "https://github.com/zorexsalvo/nvim-config"
 ---
 
 I've been tweaking my Neovim config for over two and a half years now. It started as a simple experiment and turned into a 39-commit journey through plugin managers, colorschemes, and LSP setups.

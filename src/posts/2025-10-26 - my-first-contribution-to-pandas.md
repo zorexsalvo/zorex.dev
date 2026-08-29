@@ -6,6 +6,7 @@ published: 2025-10-26
 tags: [python, opensource, pandas, pycon, sprints]
 description: How I made my first contribution to pandas during a sprint at PyCon Davao 2025, adding strict=True to zip() and learning that even the "easy" issues have nuance.
 draft: false
+repo_link: "https://github.com/pandas-dev/pandas"
 ---
 
 

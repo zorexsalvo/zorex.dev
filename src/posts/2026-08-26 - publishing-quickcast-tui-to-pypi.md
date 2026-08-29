@@ -14,6 +14,7 @@ tags:
   - asyncio
 description: "Building quickcast, a BG3-inspired radial-menu terminal UI for firing off shell commands, then taking it from scratch to a PyPI-ready package."
 draft: false
+repo_link: "https://github.com/zorexsalvo/quickcast-tui"
 ---
 
 **Quickcast** is a radial-menu terminal app for running shell commands ("spells") configured in a TOML dotfile. The gimmick is the twist: instead of a plain list, commands sit on a radial ring around a center hub, a nod to Baldur's Gate's quick spell menu.
@@ -72,24 +73,27 @@ Errors are wrapped in an `ExecutionError` and surfaced in the overlay, not as a 
 
 The code was in good shape, but I'd never audited it against PyPI's requirements. So I went through it like a release engineer.
 
-### Already solid
+## Already solid
 
 - Standard **hatchling** build config in `pyproject.toml`
 - Proper `src/` layout, the wheel bundles the `widgets/` subpackage
 - A valid `[project.scripts]` entry point: `quickcast = "quickcast.app:main"`
 - A real test suite (`test_config.py`, `test_executor.py`)
 
-### The blockers
+
+## The blockers
 
 1. **Placeholder author metadata.** `name = "Quickcast Contributors"` and `email = "dev@example.com"`. PyPI flags fake emails. Swapped for my GitHub identity with a noreply address.
 2. **No git repository, no URLs.** The project wasn't version-controlled and had no `[project.urls]` (what PyPI renders as Homepage/Repository links). Ran `git init` and added the URL block.
 3. **README placeholder.** The install-from-source section had an untemplated `<repo-url>` that would render broken on PyPI. Replaced with the real URL.
 4. **A dead relative link.** The README linked to `RADIAL_MENU_DEMO.txt` relatively. That works on GitHub but dies on PyPI. Pointed it at the GitHub blob URL so it resolves everywhere.
 
-### The warnings
+
+## The warnings
 
 - **License format.** `license = {text = "MIT"}` is the deprecated form; switched to the modern SPDX `license = "MIT"`.
 - **A dead-weight dependency.** `requires-python` is `>=3.11`, so `tomllib` is always available, yet `config.py` still had a `tomli` fallback for older Pythons. Removed both the dependency and the fallback (plus an unused `sys` import).
+
 
 ## The Verify
 
@@ -100,7 +104,9 @@ python -m build
 twine check dist/*
 ```
 
+
 Both the sdist and the wheel came back **PASSED**. I inspected the wheel and confirmed it actually contained the `widgets/` subpackage and the `quickcast` console-script entry point. And all 9 tests still pass after the `config.py` change.
+
 
 ## The Naming Fix
 
@@ -116,6 +122,7 @@ The rename was small because the code was already right:
 - The GitHub repo (`zorexsalvo/quickcast-tui`) and its URLs stayed as-is.
 
 A helpful habit: verify the name on PyPI *before* investing in the packaging work, and keep the distribution name consistent with the import package from day one. A 404 from the JSON API is the quickest sanity check there is.
+
 
 ## Installing
 

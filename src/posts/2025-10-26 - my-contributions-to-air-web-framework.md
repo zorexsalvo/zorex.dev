@@ -6,6 +6,7 @@ published: 2025-10-26
 tags: [python, opensource, air, pycon, sprints, django]
 description: "How I contributed to the Air web framework during PyCon Davao 2025 — and became an early contributor before the sprint even started."
 draft: false
+repo_link: "https://github.com/feldroy/air"
 ---
 
 During PyCon Davao 2025, I didn't just contribute to pandas. I also made several contributions to **Air**, the AI-first Python web framework by **Daniel Roy Greenfeld and Audrey Roy Greenfeld** (the authors of *Two Scoops of Django*).
