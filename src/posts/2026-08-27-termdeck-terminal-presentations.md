@@ -12,7 +12,7 @@ tags:
   - tui
   - markdown
   - presentation
-description: I built a terminal presentation tool to give a talk at PyCon Indonesia, then productionized it into a PyPI package. What it does, how it's built, and the flaws a release audit caught.
+description: I built a terminal presentation tool to give a lightning-talk at PyCon Indonesia, then productionized it into a PyPI package.
 draft: false
 repo_link: "https://github.com/zorexsalvo/termdeck"
 ---
