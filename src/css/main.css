@@ -125,15 +125,45 @@ body {
 .blog {
   max-width: 640px;
   width: 100%;
-  padding: 3rem 2rem 2rem;
+  padding: 2rem 2rem 2rem;
   margin: 0 auto;
 }
 
 .page-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
+}
+
+.search-input {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  border: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+  background: transparent;
+  opacity: 0.55;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-input:focus {
+  outline: none;
+  opacity: 0.85;
+}
+
+.search-input::placeholder {
+  color: #666;
+  opacity: 0.55;
+}
+
+.search-empty {
+  font-size: 0.875rem;
+  color: #777;
+  margin-bottom: 1rem;
 }
 
 .post-list {
@@ -370,4 +400,12 @@ body {
 
 .back-link:hover {
   color: #1a1a1a;
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .blog,
+  .post {
+    padding-top: 5rem;
+  }
 }

@@ -5,7 +5,8 @@ title: blog
 
 <main class="blog">
   <h1 class="page-title">blog</h1>
-  
+  <input id="post-search" class="search-input" type="search" placeholder="search posts" autocomplete="off" spellcheck="false">
+
   <ul class="post-list">
     {% for post in collections.posts %}
     <li class="post-item">
@@ -26,4 +27,28 @@ title: blog
     </li>
     {% endfor %}
   </ul>
+
+  <p class="search-empty" hidden>No matching posts.</p>
 </main>
+
+<script>
+  const input = document.getElementById('post-search');
+  const items = [...document.querySelectorAll('.post-item')];
+  const empty = document.querySelector('.search-empty');
+
+  const update = () => {
+    const query = input.value.trim().toLowerCase();
+    let visible = 0;
+
+    items.forEach((item) => {
+      const match = !query || item.textContent.toLowerCase().includes(query);
+      item.hidden = !match;
+      if (match) visible += 1;
+    });
+
+    empty.hidden = visible !== 0;
+  };
+
+  input.addEventListener('input', update);
+  update();
+</script>
