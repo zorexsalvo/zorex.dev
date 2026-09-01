@@ -403,7 +403,14 @@ body {
 }
 
 @media (max-width: 640px) {
-  .hero,
+  .hero {
+    padding: 5rem 1.25rem 0.25rem;
+  }
+
+  .recent {
+    padding: 0.5rem 1.25rem 3rem;
+  }
+
   .blog,
   .post {
     padding-top: 5rem;
