@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: notes
+---
+
+<main class="blog">
+  <h1 class="page-title">notes</h1>
+
+  <ul class="post-list">
+    {% for note in collections.notes %}
+    <li class="post-item">
+      <time class="post-item-date" datetime="{{ note.date | dateToISO }}">{{ note.date | readableDate }}</time>
+      <h2 class="post-item-title">
+        <a href="{{ note.url }}">{{ note.data.title }}</a>
+      </h2>
+      {% if note.data.description %}
+      <p class="post-item-description">{{ note.data.description }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</main>

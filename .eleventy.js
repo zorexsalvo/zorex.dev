@@ -28,6 +28,13 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Personal notes collection (unlisted, not in site nav)
+  eleventyConfig.addCollection("notes", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/notes/*.md").sort(function(a, b) {
+      return b.date - a.date;
+    });
+  });
+
   return {
     dir: {
       input: "src",
