@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: slides
+---
+
+<main class="blog">
+  <h1 class="page-title">slides</h1>
+
+  <ul class="post-list">
+    {% for slide in collections.slides %}
+    <li class="post-item">
+      <time class="post-item-date" datetime="{{ slide.date | dateToISO }}">{{ slide.date | readableDate }}</time>
+      <h2 class="post-item-title">
+        <a href="{{ slide.url }}">{{ slide.data.title }}</a>
+      </h2>
+      {% if slide.data.description %}
+      <p class="post-item-description">{{ slide.data.description }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</main>

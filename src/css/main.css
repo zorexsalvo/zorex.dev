@@ -402,6 +402,97 @@ body {
   color: #1a1a1a;
 }
 
+/* Slideshow */
+.slideshow {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+  color: #fafafa;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.slide-content {
+  max-width: 900px;
+  width: 100%;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.5;
+}
+
+.slide-content h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.slide-content h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.slide-content h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.slide-content p,
+.slide-content ul,
+.slide-content ol {
+  margin-bottom: 1.25rem;
+}
+
+.slide-content ul,
+.slide-content ol {
+  padding-left: 1.5rem;
+}
+
+.slide-content li {
+  margin-bottom: 0.5rem;
+}
+
+.slide-content blockquote {
+  border-left: 4px solid #444;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: #bbb;
+  font-style: italic;
+}
+
+.slide-content strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+.slide-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+.slide-controls {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #666;
+  z-index: 10;
+}
+
 @media (max-width: 640px) {
   .hero {
     padding: 5rem 1.25rem 0.25rem;
@@ -414,5 +505,9 @@ body {
   .blog,
   .post {
     padding-top: 5rem;
+  }
+
+  .slide {
+    padding: 2rem;
   }
 }
