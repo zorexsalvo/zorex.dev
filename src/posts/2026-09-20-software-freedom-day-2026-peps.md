@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Software Freedom Day 2026: PEPs: Written by Humans, Read by Few"
+title: "Software Freedom Day 2026 Manila: PEPs: Written by Humans, Read by Few"
 date: 2026-09-20
 published: 2026-09-20
 tags:
@@ -13,6 +13,8 @@ draft: false
 ---
 
 Spoke at Software Freedom Day 2026 Manila about PEPs. The docs that decide how Python evolves, and that almost nobody reads.
+
+Organized by WordPress User Group PH and Huawei Cloud Developer Group.
 
 Three autopsies: one accepted, one rejected, one controversial. Same format, three outcomes, and the difference was never technical.
 
