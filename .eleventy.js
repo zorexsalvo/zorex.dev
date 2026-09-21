@@ -83,14 +83,21 @@ module.exports = function(eleventyConfig) {
           slides[i].style.display = 'flex';
           counter.textContent = (i + 1) + ' / ' + total;
         }
+        function goNext() { if (current < total - 1) show(++current); }
+        function goPrev() { if (current > 0) show(--current); }
         document.addEventListener('keydown', function(e) {
           if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
             e.preventDefault();
-            if (current < total - 1) show(++current);
+            goNext();
           } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
             e.preventDefault();
-            if (current > 0) show(--current);
+            goPrev();
           }
+        });
+        document.querySelector('.slideshow').addEventListener('click', function(e) {
+          var tag = e.target.tagName.toLowerCase();
+          if (['a','button','input','textarea','select'].indexOf(tag) !== -1) return;
+          if (e.clientX < window.innerWidth / 2) goPrev(); else goNext();
         });
       })();
     </script>

@@ -17,7 +17,10 @@ Most Python developers I talk to have never heard of it.
 It's public. It's free. It's right there.
 
 <!-- note:
-- I didn't go looking for this PEP — I saw an election announcement and followed one link
-- The document told me the whole thing: replaces PEP 609, approved in April, creates an elected body
-- Most Python developers I talk to have never heard of it
+- This is my actual story. I didn't go digging through PEPs for fun.
+- I saw a post: "there's an election for a Packaging Council." That caught my attention.
+- So I followed one link to PEP 772. And the document told me everything.
+- It replaces PEP 609. It was approved in April. It creates an elected, accountable body with delegated authority.
+- I knew about it because I followed one link. Most Python developers I talk to have never heard of it.
+- That's the whole point of this talk: this stuff is public, it's free, and it's right there. You just have to turn the handle.
 -->

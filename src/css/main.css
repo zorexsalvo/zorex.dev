@@ -408,8 +408,8 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: #1a1a1a;
-  color: #fafafa;
+  background: #f0eeeb;
+  color: #2a2a2a;
 }
 
 .slide {
@@ -424,28 +424,28 @@ body {
 .slide-content {
   max-width: 900px;
   width: 100%;
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 1.5;
 }
 
 .slide-content h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .slide-content h2 {
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.25rem, 3vw, 2rem);
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .slide-content h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   margin-bottom: 1rem;
   font-weight: 600;
-  color: #ccc;
+  color: #555;
 }
 
 .slide-content p,
@@ -464,16 +464,16 @@ body {
 }
 
 .slide-content blockquote {
-  border-left: 4px solid #444;
+  border-left: 4px solid #ccc;
   padding-left: 1.25rem;
   margin: 1.5rem 0;
-  color: #bbb;
+  color: #666;
   font-style: italic;
 }
 
 .slide-content strong {
   font-weight: 700;
-  color: #fff;
+  color: #1a1a1a;
 }
 
 .slide-content img {
@@ -483,13 +483,41 @@ body {
   margin: 1.5rem auto;
 }
 
+.slide-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9em;
+}
+
+.slide-content th,
+.slide-content td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.slide-content th {
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #e5e3e0;
+}
+
+.slide-content td {
+  color: #2a2a2a;
+}
+
+.slide-content tr:last-child td {
+  border-bottom: 2px solid #bbb;
+}
+
 .slide-controls {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
-  color: #666;
+  color: #888;
   z-index: 10;
 }
 

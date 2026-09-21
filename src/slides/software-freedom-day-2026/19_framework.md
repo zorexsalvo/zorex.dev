@@ -1,7 +1,5 @@
 # The PEP Reader's Framework
 
-![xkcd 1989: IMHO](images/xkcd_imho.png)
-
 ## The 5-Minute Checklist
 
 1. **Problem:** Is it a real pain point or theoretical?

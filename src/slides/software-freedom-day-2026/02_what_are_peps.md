@@ -5,10 +5,9 @@
 - Debated on mailing lists, edited by volunteers
 - **Not sacred texts**
 
-<img src="images/xkcd_standards.png" width="60" height="auto">
+[xkcd 927: Standards](https://xkcd.com/927/)
 
 <!-- note:
-- Quick show of hands — who here has ever opened a PEP?
-- Who here has ever *used* one, without knowing it?
-- If you've ever run `pip install`, you've benefited from one. They just don't send you a notification.
+- Most people think PEPs are something only core developers touch
+- The reality: they're public documents that shape the tools you use every day
 -->
