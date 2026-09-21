@@ -14,7 +14,7 @@ draft: false
 
 Spoke at Software Freedom Day 2026 Manila about PEPs. The docs that decide how Python evolves, and that almost nobody reads.
 
-Organized by WordPress User Group PH and Huawei Cloud Developer Group.
+Organized by @wpugph and @hcdg.
 
 Three autopsies: one accepted, one rejected, one controversial. Same format, three outcomes, and the difference was never technical.
 
