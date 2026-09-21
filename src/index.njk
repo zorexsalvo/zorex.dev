@@ -4,31 +4,37 @@ title: "Zorex Salvo <zorex.dev>"
 description: "Zorex Salvo — building things, breaking things, learning in between."
 ---
 
-<main class="hero">
-  <h1 class="name">zorex.dev</h1>
-  <p class="tagline">building things, breaking things, learning in between.</p>
-  <nav class="links">
-    <a href="https://github.com/zorexsalvo" target="_blank" rel="noopener">github</a>
-    <span class="sep">·</span>
-    <a href="https://linkedin.com/in/zorexsalvo" target="_blank" rel="noopener">linkedin</a>
-    <span class="sep">·</span>
-    <a href="mailto:zorexsalvo@gmail.com">email</a>
-  </nav>
-</main>
+<main>
+  <section class="hero">
+    <h1 class="name">zorex.dev</h1>
+    <p class="tagline">building things, breaking things, learning in between.</p>
+    <nav class="links">
+      <a href="https://github.com/zorexsalvo" target="_blank" rel="noopener">github</a>
+      <span class="sep">·</span>
+      <a href="https://linkedin.com/in/zorexsalvo" target="_blank" rel="noopener">linkedin</a>
+      <span class="sep">·</span>
+      <a href="mailto:zorexsalvo@gmail.com">email</a>
+    </nav>
+  </section>
 
-<section class="blog recent">
-  <ul class="post-list">
-    {% for post in collections.posts.slice(0,4) %}
-    <li class="post-item">
-      <time class="post-item-date" datetime="{{ post.date | dateToISO }}">{{ post.date | readableDate }}</time>
-      <h3 class="post-item-title">
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-      </h3>
-      {% if post.data.description %}
-      <p class="post-item-description">{{ post.data.description }}</p>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-  <p class="recent-more"><a href="/blog">all posts →</a></p>
-</section>
+  {% if collections.posts.length %}
+  <section class="blog recent">
+    <div class="recent-grid">
+      <ul class="post-list">
+        {% for post in collections.posts.slice(0,4) %}
+        <li class="post-item">
+          <time class="post-item-date" datetime="{{ post.date | dateToISO }}">{{ post.date | readableDate }}</time>
+          <h2 class="post-item-title">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h2>
+          {% if post.data.description %}
+          <p class="post-item-description">{{ post.data.description }}</p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <p class="recent-more"><a href="/blog">all posts →</a></p>
+  </section>
+  {% endif %}
+</main>
